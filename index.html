@@ -1160,144 +1160,150 @@
                 gap: 0.9rem;
                 width: 100%;
                 margin-bottom: 5px;
-            }
-
-            .card-line {
-                height: 1px;
-                background: var(--accent-gold);
-                flex: 1;
-            }
-
-            @keyframes lineGrow {
-                to {
-                    transform: scaleX(0.3);
-                }
-            }
-
-            .card-tagline {
-                font-size: 0.9rem;
-                letter-spacing: 0.1em;
-                color: var(--accent-gold);
-                font-weight: bold;
-                text-transform: uppercase;
-                white-space: nowrap;
-            }
-
-            .hero-title {
-                font-size: clamp(1.4rem, 4.5vh, 2.2rem);
-                margin: 0.5vh 0;
-                line-height: 1.1;
-                color: var(--deep-maroon);
-            }
-
-            .hero-subtitle {
-                font-size: clamp(0.85rem, 2vh, 1.1rem);
-                margin-top: 0.5vh;
-                color: var(--deep-maroon);
-                font-weight: bold;
-                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                font-style: italic;
-            }
-
-            .hero-slider-container {
-                width: 100%;
-                margin-top: 0;
-                height: 42vh;
-                position: relative;
-                padding: 1vh 0;
-                padding-bottom: 7vh;
-                overflow: visible;
-                display: flex;
-                align-items: center;
-            }
-
-            .slider-nav {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                width: max-content;
-                scale: 1.1;
-
-                z-index: 20;
-            }
-
-            .hero-card:hover .hero-card-side img {
-                transform: scale(0.5) !important;
-            }
-
-            .hero-slider-wrapper {
-                gap: 30px;
-            }
-
-            .hero-slide {
-                opacity: 0.4;
-                transform: scale(0.8);
-                transition: all 0.5s ease;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                flex: 0 0 70%;
-                min-width: 200px;
-            }
-
-            .hero-slide img {
-                width: auto;
-                height: clamp(140px, 26vh, 220px);
-                object-fit: contain;
-                display: block;
-                margin: 0 auto;
-            }
-
-            .hero-slide.active {
-                opacity: 1;
-                transform: scale(1.35) translateY(-1.5vh);
-                z-index: 10;
+                text-shadow: 0 2px 0.1px rgb(0 0 0 / 20%);
             }
 
             .hero-slide.active .slide-title {
-                opacity: 1;
-                transform: translateY(1vh);
+                text-shadow: 0 0.3px 0.1px rgb(0 0 0 / 46%) !important;
+                font-weight: bold !important;
             }
+        }
 
-            .slide-title {
-                font-size: clamp(0.65rem, 1.5vh, 0.8rem);
-                margin-top: 1vh;
-                font-weight: 600;
-                text-align: center;
-                width: 100%;
-                white-space: nowrap;
-            }
+        .card-line {
+            height: 1px;
+            background: var(--accent-gold);
+            flex: 1;
+        }
 
-            .slide-info {
-                display: none;
+        @keyframes lineGrow {
+            to {
+                transform: scaleX(0.3);
             }
+        }
 
-            .section {
-                padding: 40px 0;
-            }
+        .card-tagline {
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
 
-            .about-content {
-                flex-direction: column;
-                padding: 30px 20px;
-                gap: 30px;
-            }
+        .hero-title {
+            font-size: clamp(1.4rem, 4.5vh, 2.2rem);
+            margin: 0.5vh 0;
+            line-height: 1.1;
+            color: var(--deep-maroon);
+        }
 
-            .about-image {
-                width: 100%;
-                height: 300px;
-            }
+        .hero-subtitle {
+            font-size: clamp(0.85rem, 2vh, 1.1rem);
+            margin-top: 0.5vh;
+            color: var(--deep-maroon);
+            font-style: italic;
+            text-shadow: 0 -1px 0.1px rgb(0 0 0 / 20%) !important;
+            font-weight: bold !important;
+        }
 
-            .whatsapp-cta-wrapper {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-                padding: 40px 20px;
-            }
+        .hero-slider-container {
+            width: 100%;
+            margin-top: 0;
+            height: 42vh;
+            position: relative;
+            padding: 1vh 0;
+            padding-bottom: 7vh;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+        }
 
-            .collection-sharp-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: max-content;
+            scale: 1.1;
+
+            z-index: 20;
+        }
+
+        .hero-card:hover .hero-card-side img {
+            transform: scale(0.5) !important;
+        }
+
+        .hero-slider-wrapper {
+            gap: 30px;
+        }
+
+        .hero-slide {
+            opacity: 0.4;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 70%;
+            min-width: 200px;
+        }
+
+        .hero-slide img {
+            width: auto;
+            height: clamp(140px, 26vh, 220px);
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1.35) translateY(-1.5vh);
+            z-index: 10;
+        }
+
+        .hero-slide.active .slide-title {
+            opacity: 1;
+            transform: translateY(1vh);
+        }
+
+        .slide-title {
+            font-size: clamp(0.65rem, 1.5vh, 0.8rem);
+            margin-top: 1vh;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        .slide-info {
+            display: none;
+        }
+
+        .section {
+            padding: 40px 0;
+        }
+
+        .about-content {
+            flex-direction: column;
+            padding: 30px 20px;
+            gap: 30px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+        }
+
+        .whatsapp-cta-wrapper {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .collection-sharp-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
     </style>
 </head>
