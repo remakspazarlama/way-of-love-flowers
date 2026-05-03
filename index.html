@@ -1027,20 +1027,196 @@
 
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
+
+            body,
+            html {
+                overflow-x: hidden;
+                position: relative;
+                width: 100%;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .about-image {
-                height: 400px;
+            .logo {
+                font-family: 'Playfair Display', serif;
+                font-size: 2.1rem;
+                font-weight: 700;
+                color: var(--deep-maroon);
+                text-decoration: none;
+                flex: 2;
+                z-index: 5;
+                text-shadow: 0em 0.25em 0.05em rgba(130, 33, 67, 0.1);
+                text-align: center;
             }
 
-            .about-content {
-                padding: 40px 20px;
+            nav {
+                padding: 10px 10px;
+            }
+
+            nav.scrolled {
+                padding: 10px 10px;
+            }
+
+            .nav-content {
+                padding: 5px 10px;
+                gap: 5px;
+            }
+
+            .nav-flower {
+                height: 7rem;
+            }
+
+            .nav-flower-left {
+                left: -0.1rem !important;
+                animation: flowerSwingLeft 4s ease-in-out infinite;
+            }
+
+            .nav-flower-right {
+                right: -0.1rem !important;
+                animation: flowerSwingRight 4s ease-in-out infinite;
+            }
+
+            /* --- HERO MOBILE REVAMP --- */
+            .hero {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 10px;
+            }
+
+            .hero-card {
+                flex-direction: row !important;
+                display: flex;
+                align-items: stretch;
+                justify-content: space-between;
+                gap: 0;
+                border-radius: 40px;
+                margin: 0;
+                height: auto;
+                max-height: 90vh;
+                width: 100%;
+                overflow: hidden;
+                background: rgb(223 175 0 / 6%);
+                backdrop-filter: blur(1px);
+                -webkit-backdrop-filter: blur(1px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+                z-index: 1;
+            }
+
+            .hero-card-side {
+                display: flex !important;
+                flex: 0.5;
+                overflow: hidden;
+            }
+
+            .hero-card-side img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform: scale(1.1);
+            }
+
+            .hero-card-center {
+                flex: 2.5;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.5rem;
+                padding: 20px 14px;
+                position: relative;
+                z-index: 1;
+                justify-content: center;
+            }
+
+            .tagline-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.9rem;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .card-line {
+                height: 1px;
+                background: var(--accent-gold);
+                flex: 1;
+            }
+
+            @keyframes lineGrow {
+                to {
+                    transform: scaleX(0.3);
+                }
+            }
+
+            .card-tagline {
+                font-size: 0.65rem;
+                letter-spacing: 0.1em;
+                color: var(--accent-gold);
+                font-weight: 400;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            .hero-title {
+                font-size: clamp(1.4rem, 8vw, 2.5rem);
+                margin: 5px 0;
+                line-height: 1.1;
+                color: var(--deep-maroon);
+            }
+
+            .hero-subtitle {
+                font-size: 0.85rem;
+                margin-top: 5px;
+            }
+
+            .hero-slider-container {
+                margin-top: 15px;
+                padding: 5px 0;
+            }
+
+            .hero-slide img {
+                height: 120px;
+            }
+
+            .slide-title {
+                font-size: 0.7rem;
+                margin-top: 5px;
+            }
+
+            .slide-info {
+                display: none;
             }
 
             .section {
-                padding: 80px 0;
+                padding: 40px 0;
+            }
+
+            .about-content {
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .about-image {
+                width: 100%;
+                height: 300px;
+            }
+
+            .whatsapp-cta-wrapper {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 40px 20px;
+            }
+
+            .collection-sharp-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -1049,8 +1225,8 @@
 <body>
 
     <nav id="navbar">
+        <img src="resimler/gul-dali-sol.png" class="nav-flower nav-flower-left" alt="">
         <div class="container nav-content">
-            <img src="resimler/gul-dali-sol.png" class="nav-flower nav-flower-left" alt="">
             <a href="#" class="logo">Ways of Love</a>
             <div class="nav-links">
                 <a href="#home" class="active">Anasayfa</a>
@@ -1067,8 +1243,8 @@
                     </svg>
                 </a>
             </div>
-            <img src="resimler/gul-dali-sag.png" class="nav-flower nav-flower-right" alt="">
         </div>
+        <img src="resimler/gul-dali-sag.png" class="nav-flower nav-flower-right" alt="">
     </nav>
 
     <header id="home" class="hero">
