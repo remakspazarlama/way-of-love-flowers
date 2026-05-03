@@ -1212,6 +1212,10 @@
             }
 
             .slider-nav {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                width: max-content;
                 scale: 1.1;
                 position: absolute;
                 bottom: 0.5vh;
@@ -1263,6 +1267,9 @@
                 font-size: clamp(0.65rem, 1.5vh, 0.8rem);
                 margin-top: 1vh;
                 font-weight: 600;
+                text-align: center;
+                width: 100%;
+                white-space: nowrap;
             }
 
             .slide-info {
@@ -1371,10 +1378,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="slider-nav">
-                        <button class="nav-dot" onclick="moveSlider(-1)">‹‹</button>
-                        <button class="nav-dot" onclick="moveSlider(1)">››</button>
-                    </div>
+
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-dot" onclick="moveSlider(-1)">‹‹</button>
+                    <button class="nav-dot" onclick="moveSlider(1)">››</button>
                 </div>
             </div>
             <div class="hero-card-side">
