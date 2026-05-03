@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ways Of Love Flowers | Butik Çiçekçilik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #b54c75;
+            --soft-pink: #f9c5d1;
+            --accent-gold: #e5ae78;
+            --bg-light: #fff8f8;
+            --deep-maroon: #822143;
+            --text-dark: #3a2a2a;
+            --transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+            --shadow: 0 10px 30px rgba(181, 76, 117, 0.1);
+            --border-width: clamp(1px, 0.0625em, 4px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            /* Scroll behavior handled by custom JS for ultra-smooth experience */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            perspective: 1000px;
+        }
+
+        nav.scrolled {
+            background: rgb(255 255 255 / 28%);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 10px 60px;
+            border-radius: 999vw;
+            background: linear-gradient(-75deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: var(--border-width) solid rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+                inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+                0 0.25em 0.125em -0.125em rgba(130, 33, 67, 0.2);
+            transition: var(--transition);
+        }
+
+        .nav-flower {
+            position: absolute;
+            height: 12rem;
+            pointer-events: none;
+            z-index: 10;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+            transform-origin: center top;
+        }
+
+        @keyframes flowerSwingLeft {
+            0% {
+                transform: translateY(-50%) rotateZ(-5deg);
+            }
+
+            50% {
+                transform: translateY(-50%) rotateZ(5deg);
+            }
+
+            100% {
+                transform: translateY(-50%) rotateZ(-5deg);
+            }
+        }
+
+        @keyframes flowerSwingRight {
+            0% {
+                transform: translateY(-50%) rotateZ(5deg);
+            }
+
+            50% {
+                transform: translateY(-50%) rotateZ(-5deg);
+            }
+
+            100% {
+                transform: translateY(-50%) rotateZ(5deg);
+            }
+        }
+
+        .nav-flower-left {
+            left: -3rem;
+            animation: flowerSwingLeft 4s ease-in-out infinite;
+        }
+
+        .nav-flower-right {
+            right: -3rem;
+            animation: flowerSwingRight 4s ease-in-out infinite;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-maroon);
+            text-decoration: none;
+            flex: 1;
+            z-index: 5;
+            text-shadow: 0em 0.25em 0.05em rgba(130, 33, 67, 0.1);
+        }
+
+        /* ========== SHARED BUTTON & NAV LOGIC ========== */
+        .nav-links,
+        .nav-links a,
+        .whatsapp-btn {
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex: 2;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .nav-links a,
+        .whatsapp-btn {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.05em;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border-radius: 999vw;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+            overflow: hidden;
+            border: var(--border-width) solid rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+                inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+                0 0.25em 0.125em -0.125em rgba(130, 33, 67, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-shadow: 0em 0.1em 0.1em rgba(0, 0, 0, 0.1);
+        }
+
+        /* Glossy Shimmer Effect (Standard CSS) */
+        .nav-links a::before,
+        .whatsapp-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 3;
+        }
+
+        /* Hover States */
+        .nav-links a:hover,
+        .whatsapp-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            color: var(--primary-pink);
+            box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+                inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+                0 10px 20px -10px rgba(130, 33, 67, 0.3);
+        }
+
+        .nav-links a:hover::before,
+        .whatsapp-btn:hover::before {
+            left: 150%;
+        }
+
+        .nav-links a:hover {
+            text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
+        }
+
+        /* Active/Click States (3D Rotation) */
+        .nav-links a:active,
+        .whatsapp-btn:active,
+        .nav-links a.active {
+            background: var(--deep-maroon);
+            color: white !important;
+            transform: translateY(1px) scale(0.98);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a.active::before {
+            display: none;
+        }
+
+        .nav-links a.active {
+            text-shadow: 0.025em 0.1em 0.05em rgba(0, 0, 0, 0.2);
+        }
+
+        /* Custom for WhatsApp Green specifically */
+        .whatsapp-btn {
+            color: #128c7e;
+            background: rgba(37, 211, 102, 0.1);
+        }
+
+        .whatsapp-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            z-index: 4;
+        }
+
+        .nav-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            background: var(--bg-light);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url(resimler/sol-gul-1.png) left / 46% 130% no-repeat, url(resimler/sag-gul-1.png) right / 41% 130% no-repeat;
+            filter: blur(29px);
+            z-index: 0;
+        }
+
+        .hero-card {
+            position: relative;
+            background: rgb(223 175 0 / 6%);
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 1500px;
+            animation: fadeInUp 1.2s ease-out forwards;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url(resimler/sol-gul-1.png) left / 46% 130% no-repeat, url(resimler/sag-gul-1.png) right / 41% 130% no-repeat;
+            filter: blur(5px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .hero-card-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: unset !important;
+        }
+
+        .hero-card:hover .hero-card-side img {
+            transform: scale(1.05);
+        }
+
+        .hero-card-center {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .card-line {
+            flex: 1;
+            height: 1px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            animation: lineGrow 1.5s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+        }
+
+        .tagline-wrapper .card-line:first-child {
+            transform-origin: right;
+        }
+
+        .tagline-wrapper .card-line:last-child {
+            transform-origin: left;
+        }
+
+        @keyframes lineGrow {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .card-tagline {
+            font-size: 0.8rem;
+            letter-spacing: 0.4em;
+            color: var(--accent-gold);
+            font-weight: 400;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin: 10px 0;
+            line-height: 1.1;
+            color: var(--deep-maroon);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            color: rgba(130, 33, 67, 0.85);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: var(--accent-gold);
+            color: var(--deep-maroon);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            box-shadow: 0 5px 20px rgba(229, 174, 120, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-pink);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 5px 25px;
+            border: 1px solid var(--accent-gold);
+            color: #c96400;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(229, 174, 120, 0.3);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(229, 174, 120, 0.5);
+            background-color: #f0c08d;
+            color: var(--deep-maroon);
+        }
+
+        /* --- HERO SLIDER --- */
+        .hero-slider-container {
+            width: 100%;
+            margin-top: 40px;
+            position: relative;
+            padding: 20px 0;
+            overflow: hidden;
+        }
+
+        .hero-slider-wrapper {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .hero-slide {
+            flex: 0 0 calc(33.333% - 14px);
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.5;
+            transform: scale(0.9);
+            cursor: pointer;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+        }
+
+        .slide-title {
+            color: var(--deep-maroon);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 15px;
+            letter-spacing: 0.15em;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: all 0.4s ease 0.1s;
+            /* Slightly delayed for sequential feel */
+            text-transform: uppercase;
+        }
+
+        .hero-slide.active .slide-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            color: var(--deep-maroon);
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .hero-slide.active .slide-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .nav-dot {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .nav-dot:hover {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        /* --- COLLECTIONS --- */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section .container {
+            background: transparent;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 50px;
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 40px 100px rgba(181, 76, 117, 0.08);
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1500px;
+            /* Adjust based on circles + grid + header */
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        #contact-info .container {
+            padding: 0 !important;
+        }
+
+        #collections {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collections-background-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .collections-background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            gap: 0;
+            filter: blur(24px) brightness(0.9);
+            transition: opacity 1s ease-in-out;
+            overflow: hidden;
+        }
+
+        .collections-background-layer img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            transform: scale(1.15);
+            /* Scale images individually to cover blur edges */
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--deep-maroon);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--accent-gold);
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .collection-circles {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .collection-circle-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: center;
+            width: 100px;
+            transition: var(--transition);
+            cursor: pointer;
+            margin: auto 2rem;
+        }
+
+        .collection-circle-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            padding: 3px;
+            transition: var(--transition);
+            background: #fffcfc;
+            /* Fallback color if image is missing */
+            display: block;
+            margin: 0 auto;
+        }
+
+        .collection-circle-item.active {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        .collection-circle-item.active img {
+            border-color: var(--primary-pink);
+            box-shadow: 0 8px 30px rgba(181, 76, 117, 0.25);
+        }
+
+        .collection-circle-item h4 {
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-maroon);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+        }
+
+        .collection-circle-item.active h4 {
+            color: var(--primary-pink);
+            font-weight: 700;
+        }
+
+        .collection-circle-item:hover img {
+            transform: scale(1.05);
+            border-color: var(--primary-pink);
+        }
+
+        /* Circle Placeholder Branding */
+        .collection-circle-item.is-placeholder img {
+            display: none;
+        }
+
+        .collection-circle-item.is-placeholder .circle-placeholder {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-maroon);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.05em;
+            margin: 0 auto 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .collection-sharp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 2rem;
+            column-gap: 1rem;
+            width: 100%;
+            max-width: 900px;
+            min-height: 900px;
+            /* 3 rows of items with aspect-ratio 1/1 */
+            margin: 0 auto;
+            position: relative;
+
+            .collection-sharp-item {
+                position: relative;
+                aspect-ratio: 1/1;
+                overflow: hidden;
+                display: none;
+                will-change: opacity, transform;
+                backface-visibility: hidden;
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.15);
+            }
+
+            /* Placeholder text behind the image */
+            .collection-sharp-item::before {
+                content: 'Ways of Love';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-family: 'Playfair Display', serif;
+                color: var(--deep-maroon);
+                font-size: 0.9rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                opacity: 0.6;
+                white-space: nowrap;
+                z-index: 1;
+                transition: opacity 0.4s ease;
+            }
+
+            .collection-sharp-item.loaded::before,
+            .collection-sharp-item.is-placeholder::before {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .collection-sharp-item.show {
+                display: block;
+                animation: galleryFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+                box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+                    inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+                    0 0.25em 0.125em -0.125em rgba(130, 33, 67, 0.2);
+            }
+
+            .collection-sharp-item.is-placeholder {
+                /* Hidden by default, same as items */
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                min-height: 200px;
+                /* Removed redundant backdrop-filter to prevent flickering */
+            }
+
+            .collection-sharp-item.show.is-placeholder {
+                display: flex !important;
+            }
+
+            .placeholder-text {
+                font-family: 'Playfair Display', serif;
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: var(--deep-maroon);
+                text-align: center;
+                letter-spacing: 0.05em;
+                padding: 20px;
+                opacity: 1 !important;
+                display: block !important;
+                position: relative;
+                z-index: 5;
+                text-shadow: 0em 0.25em 0.05em rgba(130, 33, 67, 0.1);
+            }
+
+            @keyframes galleryFadeIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.98);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 100%;
+            background: rgba(130, 33, 67, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 20;
+            text-align: center;
+        }
+
+        .item-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .overlay-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.6s ease;
+        }
+
+        .overlay-content p {
+            color: var(--bg-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transform: translateY(20px);
+            transition: transform 0.6s ease 0.1s;
+        }
+
+        .item-overlay.active .overlay-content h3,
+        .item-overlay.active .overlay-content p {
+            transform: translateY(0);
+        }
+
+        .collection-sharp-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            border: none !important;
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+            opacity: 0;
+            display: block;
+        }
+
+        .collection-sharp-item.loaded img {
+            opacity: 1;
+        }
+
+        .collection-sharp-item.loaded .placeholder-text {
+            display: none !important;
+        }
+
+        .collection-sharp-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- ABOUT --- */
+        .about-section {
+            background:
+                url('resimler/sol-gul-1.png') no-repeat left center / contain,
+                url('resimler/sag-gul-1.png') no-repeat right center / contain,
+                linear-gradient(135deg, #fff0f0 0%, #fff8f8 100%);
+            padding: 100px 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image {
+            flex: 1.2;
+            height: 600px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 20px 20px 60px rgba(181, 76, 117, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .about-image.is-placeholder {
+            background: rgba(130, 33, 67, 0.05);
+            border: 1px dashed rgba(130, 33, 67, 0.2);
+        }
+
+        .about-image .placeholder-text {
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-maroon);
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            z-index: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .about-content {
+            max-width: 1500px;
+            width: 95%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--deep-maroon);
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        /* --- CONTACT --- */
+        .contact-section {
+            background: linear-gradient(rgba(130, 33, 67, 0.9), rgba(130, 33, 67, 0.95)), url('https://images.unsplash.com/photo-1519308389371-cb381bdf0ae0?q=80&w=1920');
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+        }
+
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            background: #4a1226;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .about-content {
+                padding: 40px 20px;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-content">
+            <img src="resimler/gul-dali-sol.png" class="nav-flower nav-flower-left" alt="">
+            <a href="#" class="logo">Ways of Love</a>
+            <div class="nav-links">
+                <a href="#home" class="active">Anasayfa</a>
+                <a href="#collections">Çiçekler</a>
+                <a href="#about">Hakkımızda</a>
+                <a href="#contact">Adres</a>
+            </div>
+            <div class="nav-right">
+                <a href="#contact-info" class="whatsapp-btn">
+                    İletişim
+                    <svg viewBox="0 0 448 512">
+                        <path
+                            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.3-16.4-14.6-27.4-32.7-30.7-38.2-3.2-5.6-.4-8.6 2.4-11.4 2.6-2.5 5.6-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                    </svg>
+                </a>
+            </div>
+            <img src="resimler/gul-dali-sag.png" class="nav-flower nav-flower-right" alt="">
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="container hero-card">
+            <div class="hero-card-side">
+                <img src="resimler/sol-gul-1.png" alt="Sol Gül">
+            </div>
+            <div class="hero-card-center">
+                <div class="tagline-wrapper">
+                    <div class="card-line"></div>
+                    <span class="card-tagline">İÇİNİZDE ÇİÇEKLER AÇACAK</span>
+                    <div class="card-line"></div>
+                </div>
+                <h1 class="hero-title">Sana Özel</h1>
+                <p class="hero-subtitle">Hayalleriniz İçin... Aşkınız İçin Çiçek Satın Alın</p>
+                <a href="https://wa.me/905405510133" class="hero-cta">Sipariş Ver</a>
+
+                <div class="hero-slider-container">
+                    <div class="hero-slider-wrapper" id="heroSlider">
+                        <div class="hero-slide">
+                            <img src="resimler/1-buket.png" alt="">
+                            <h4 class="slide-title">BEYAZ ŞAKAYIK</h4>
+                            <div class="slide-info">En taze çiçeklerle özenle hazırladığımız bu buket, zarafetiyle fark
+                                yaratır.</div>
+                        </div>
+                        <div class="hero-slide active">
+                            <img src="resimler/2-buket.png" alt="">
+                            <h4 class="slide-title">PEMBE RÜYA</h4>
+                            <div class="slide-info">En taze çiçeklerle özenle hazırladığımız bu buket, zarafetiyle fark
+                                yaratır.</div>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="resimler/3-buket.png" alt="">
+                            <h4 class="slide-title">VINTAGE ROSE</h4>
+                            <div class="slide-info">En taze çiçeklerle özenle hazırladığımız bu buket, zarafetiyle fark
+                                yaratır.</div>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="resimler/4-buket.png" alt="">
+                            <h4 class="slide-title">SOMON ESİNTİSİ</h4>
+                            <div class="slide-info">Sevdiklerinizi mutlu etmenin en zarif yolu, bu özel buketten geçer.
+                            </div>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="resimler/5-buket.png" alt="">
+                            <h4 class="slide-title">LÜKS ARANJMAN</h4>
+                            <div class="slide-info">Sevdiklerinizi mutlu etmenin en zarif yolu, bu özel buketten geçer.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="nav-dot" onclick="moveSlider(-1)">‹‹</button>
+                        <button class="nav-dot" onclick="moveSlider(1)">››</button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-card-side">
+                <img src="resimler/sag-gul-1.png" alt="Sağ Gül">
+            </div>
+        </div>
+    </header>
+
+    <section id="collections" class="section">
+        <div class="collections-background-wrapper" id="collectionsBg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Özel Seçkilerimiz</h2>
+                <p>Şakayıkların romantik dünyasından ilham alan, her biri sanat eseri niteliğindeki tasarımlarımızı
+                    inceleyin.</p>
+            </div>
+            <div class="collection-circles">
+                <div class="collection-circle-item animate" onclick="filterGallery('buketler', this)">
+                    <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=600"
+                        onerror="handleGalleryError(this)" alt="Buketler">
+                    <h4>Buketler</h4>
+                </div>
+                <div class="collection-circle-item animate" onclick="filterGallery('sakayiklar', this)">
+                    <img src="resimler/peony_detail_pink_1777752326045.png" onerror="handleGalleryError(this)"
+                        alt="Şakayıklar">
+                    <h4>Şakayıklar</h4>
+                </div>
+                <div class="collection-circle-item active animate" onclick="filterGallery('guller', this)">
+                    <img src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt="Güller">
+                    <h4>Güller</h4>
+                </div>
+                <div class="collection-circle-item animate" onclick="filterGallery('aranjmanlar', this)">
+                    <img src="https://images.unsplash.com/photo-1591880911053-271701389e7e?q=80&w=600"
+                        onerror="handleGalleryError(this)" alt="Aranjmanlar">
+                    <h4>Aranjmanlar</h4>
+                </div>
+                <div class="collection-circle-item animate" onclick="filterGallery('ozel-gunler', this)">
+                    <img src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=600"
+                        onerror="handleGalleryError(this)" alt="Özel Günler">
+                    <h4>Özel Günler</h4>
+                </div>
+            </div>
+
+            <div class="collection-sharp-grid">
+                <!-- Buketler (Default) -->
+                <div class="collection-sharp-item show" data-category="buketler" onclick="toggleOverlay(this)">
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                    <div class="item-overlay">
+                        <div class="overlay-content">
+                            <h3>Ways of Love</h3>
+                            <p>Butik Tasarım Seçkisi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="resimler/peony_detail_pink_1777752326045.png" onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt="">
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="https://images.unsplash.com/photo-1591880911053-271701389e7e?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item show" data-category="buketler">
+                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+
+                <!-- Şakayıklar (Extra Items for filter demo) -->
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="resimler/peony_detail_pink_1777752326045.png" onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="resimler/peony_pink_hero_1777752304352.png" onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="resimler/peony_detail_pink_1777752326045.png" onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="resimler/peony_pink_hero_1777752304352.png" onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="resimler/peony_detail_pink_1777752326045.png" onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="resimler/peony_pink_hero_1777752304352.png" onerror="handleGalleryError(this)" alt="">
+                </div>
+                <div class="collection-sharp-item" data-category="sakayiklar">
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt="">
+                </div>
+
+                <!-- Placeholder for other categories to keep it functional -->
+                <div class="collection-sharp-item" data-category="guller"><img
+                        src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img src="resimler/sol-gul-1.png"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img src="resimler/sag-gul-1.png"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img
+                        src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img src="resimler/sol-gul-1.png"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img src="resimler/sag-gul-1.png"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img
+                        src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img src="resimler/sol-gul-1.png"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="guller"><img src="resimler/sag-gul-1.png"
+                        onerror="handleGalleryError(this)" alt=""></div>
+
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1591880911053-271701389e7e?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1591880911053-271701389e7e?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1591880911053-271701389e7e?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="aranjmanlar"><img
+                        src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+                <div class="collection-sharp-item" data-category="ozel-gunler"><img
+                        src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=800"
+                        onerror="handleGalleryError(this)" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://i.pinimg.com/1200x/c8/59/fd/c859fdb76637a85cb3d0089ce7517cff.jpg"
+                    onerror="handleGalleryError(this)" alt="Ways of Love">
+            </div>
+            <div class="about-text">
+                <h2>Köklerimizden <br> Gelen Tutku</h2>
+                <p>Ways of Love Flowers olarak, çiçeklerin sadece birer bitki değil, duyguların en saf ifade biçimi
+                    olduğuna
+                    inanıyoruz. On yılı aşkın süredir, her bir yaprağın dilini öğrenerek, sizin için en anlamlı anları
+                    tasarlıyoruz.</p>
+                <br>
+                <p>Sürdürülebilir tarım yapan yerel üreticilerle çalışarak, hem doğayı koruyor hem de size her zaman en
+                    taze
+                    ve canlı çiçekleri sunuyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-info" class="section contact-info-section" style="background: #fffcfc;">
+        <div class="container">
+            <div class="whatsapp-cta-wrapper">
+                <div class="whatsapp-glass-icon">
+                    <img src="resimler/wp-icon.png" alt="WhatsApp">
+                </div>
+                <div class="whatsapp-cta-text">
+                    <h2>Özel Tasarımlar İçin</h2>
+                    <p>Arzu ettiğiniz çiçek tasarımları ve sipariş detayları için bizimle anında iletişime geçin.</p>
+                    <a href="https://wa.me/905405510133" target="_blank" class="order-btn">Hemen Sipariş Ver</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .whatsapp-cta-wrapper {
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 0 0 0;
+        }
+
+        .whatsapp-cta-text {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .whatsapp-glass-icon {
+            flex-shrink: 0;
+            width: 50%;
+            height: 34vh;
+            background: rgba(37, 211, 102, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.1);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .whatsapp-glass-icon img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+            transition: transform 0.6s ease;
+        }
+
+        .whatsapp-cta-wrapper:hover .whatsapp-glass-icon img {
+            transform: scale(1.15);
+        }
+
+
+
+        .whatsapp-cta-wrapper h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--deep-maroon);
+            margin: 0;
+        }
+
+        .whatsapp-cta-wrapper p {
+            font-size: 1.1rem;
+            color: var(--deep-maroon);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .order-btn {
+            display: inline-block;
+            background: var(--deep-maroon);
+            color: var(--accent-gold);
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 25px rgba(130, 33, 67, 0.2);
+            transition: all 0.4s ease;
+            border: 1px solid var(--accent-gold);
+            margin-top: 10px;
+        }
+
+        .order-btn:hover {
+            background: var(--primary-pink);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(181, 76, 117, 0.3);
+            border-color: var(--primary-pink);
+        }
+
+        .contact-map-wrapper {
+            width: 100%;
+            margin-top: 50px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-map-wrapper iframe {
+            display: block;
+            filter: grayscale(0.3) contrast(1.1);
+        }
+    </style>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bize Ulaşın</h2>
+                <p>Özel siparişleriniz veya etkinlikleriniz için yanınızdayız.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Atölye</h4>
+                    <p>Güvenevler, 1940. Sk. No:5 <br> Yenişehir, Mersin</p>
+                </div>
+                <div class="contact-item">
+                    <h4>İletişim</h4>
+                    <p>merhaba@florabloom.com <br> +90 540 551 01 33</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Çalışma Saatleri</h4>
+                    <p>Pazartesi - Cumartesi <br> 09:00 - 20:00</p>
+                </div>
+            </div>
+
+            <!-- Full Width Map -->
+            <div class="contact-map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.8864700816823!2d34.58416057635293!3d36.78415516839352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1527f4afd94e909b%3A0x52470545d9ecb31e!2zR8O8dmVuZXZsZXIsIDE5NDAuIFNrLiBObzo1LCAzMzE0MCBZZW5pxZ9laGlyL01lcnNpbg!5e0!3m2!1str!2str!4v1714751800000!5m2!1str!2str"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ways of Love Flowers. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image Error Handler (Window Level for Global Access) - Moved to top for early capture
+        window.handleGalleryError = function (img) {
+            const parent = img.parentElement;
+            if (parent && !parent.classList.contains('is-placeholder')) {
+                parent.classList.add('is-placeholder');
+
+                if (parent.classList.contains('collection-circle-item')) {
+                    // Circle case: Replace only the image part, keep the <h4>
+                    img.style.display = 'none';
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'circle-placeholder';
+                    placeholder.innerText = 'Ways of Love';
+                    parent.insertBefore(placeholder, parent.firstChild);
+                } else {
+                    // Sharp case: Replace everything with branding text
+                    parent.innerHTML = '<span class="placeholder-text">Ways of Love</span>';
+                }
+            }
+        };
+
+        // --- Premium Inertial Scroll Engine ---
+        let targetScrollY = window.scrollY;
+        let currentScrollY = window.scrollY;
+        const scrollEase = 0.0085; // Silky smoothness factor
+        let isScrolling = false;
+
+        function lerp(start, end, amt) {
+            return (1 - amt) * start + amt * end;
+        }
+
+        function smoothUpdate() {
+            if (Math.abs(targetScrollY - currentScrollY) > 0.1) {
+                currentScrollY = lerp(currentScrollY, targetScrollY, scrollEase);
+                window.scrollTo(0, currentScrollY);
+                requestAnimationFrame(smoothUpdate);
+                isScrolling = true;
+            } else {
+                isScrolling = false;
+            }
+        }
+
+        window.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            targetScrollY += e.deltaY;
+            targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
+            if (!isScrolling) {
+                requestAnimationFrame(smoothUpdate);
+            }
+        }, { passive: false });
+
+        // Custom Ultra-Smooth Scroll for Anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const navbarHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPos = targetElement.getBoundingClientRect().top + window.pageYOffset - (navbarHeight - 20);
+                    targetScrollY = targetPos; // Sync with inertial engine
+                    if (!isScrolling) {
+                        requestAnimationFrame(smoothUpdate);
+                    }
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Spy & Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.4
+        };
+
+        const spyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Track sections for scroll spy
+        document.querySelectorAll('header, section').forEach(section => {
+            spyObserver.observe(section);
+        });
+
+        // Observer for fade-in animations
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate, .collection-card').forEach(el => fadeObserver.observe(el));
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function moveSlider(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+
+            const slider = document.getElementById('heroSlider');
+            const slides = document.querySelectorAll('.hero-slide');
+
+            // Update active class
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+
+                    // Update WhatsApp link with active product title
+                    const productTitle = slide.querySelector('.slide-title').innerText;
+                    const whatsappBtn = document.querySelector('.hero-cta');
+                    if (whatsappBtn) {
+                        const message = `Merhaba, ${productTitle} ürününden sipariş vermek istiyorum? Yardımcı olur musunuz?`;
+                        whatsappBtn.href = `https://wa.me/905405510133?text=${encodeURIComponent(message)}`;
+                    }
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Calculate offset (center focusing)
+            // Slide width (calc(33.333% - 14px)) + gap (20px)
+            const slideWidth = slides[0].offsetWidth + 20;
+            const containerWidth = document.querySelector('.hero-slider-container').offsetWidth;
+            const offset = (containerWidth / 2) - (slides[0].offsetWidth / 2) - (currentSlide * slideWidth);
+
+            slider.style.transform = `translateX(${offset}px)`;
+        }
+
+        // --- Gallery Filter Engine ---
+        let galleryTimeouts = [];
+        function filterGallery(category, element) {
+            // Clear existing timeouts to prevent category mixing on rapid clicks
+            galleryTimeouts.forEach(t => clearTimeout(t));
+            galleryTimeouts = [];
+
+            // Update active circle
+            document.querySelectorAll('.collection-circle-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            if (element) element.classList.add('active');
+
+            const grid = document.querySelector('.collection-sharp-grid');
+            const items = document.querySelectorAll('.collection-sharp-item');
+
+            // Remove existing dynamic placeholders immediately
+            document.querySelectorAll('.dynamic-placeholder').forEach(p => p.remove());
+
+            let count = 0;
+            items.forEach(item => {
+                item.classList.remove('show');
+                item.classList.remove('loaded'); // Always reset to show placeholder first
+
+                // Only show first 9 matches for the selected category
+                if (item.getAttribute('data-category') === category && count < 9) {
+                    const img = item.querySelector('img');
+                    if (img) {
+                        // Reset and re-attach onload for smooth reveal every time
+                        img.onload = () => {
+                            setTimeout(() => {
+                                if (!item.classList.contains('is-placeholder')) {
+                                    item.classList.add('loaded');
+                                }
+                            }, 1000); // Wait 1s to show branding
+                        };
+
+                        // Handle cached images: manually trigger after 1s delay
+                        if (img.complete && img.naturalHeight > 0) {
+                            setTimeout(() => {
+                                if (!item.classList.contains('is-placeholder')) {
+                                    item.classList.add('loaded');
+                                }
+                            }, 500); // Wait 1s to show branding
+                        }
+                    }
+
+                    item.classList.add('show');
+
+                    // Dynamically add overlay if missing
+                    if (!item.querySelector('.item-overlay') && !item.classList.contains('is-placeholder')) {
+                        const overlay = document.createElement('div');
+                        overlay.className = 'item-overlay';
+                        overlay.innerHTML = `
+                            <div class="overlay-content">
+                                <h3>Ways Of Love</h3>
+                                <p>Butik Tasarım Seçkisi</p>
+                            </div>
+                        `;
+                        item.appendChild(overlay);
+                        item.setAttribute('onclick', 'toggleOverlay(this)');
+                    }
+
+                    count++;
+                }
+            });
+
+            // If less than 9 items, add placeholders to maintain 3x3 symmetry
+            for (let i = count; i < 9; i++) {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'collection-sharp-item show is-placeholder dynamic-placeholder loaded'; // Mark as loaded so text stays but img part is handled
+                placeholder.innerHTML = '<span class="placeholder-text">Ways Of Love</span>';
+                grid.appendChild(placeholder);
+            }
+
+            // Update Dynamic Background Mosaic
+            updateCollectionsBackground(category);
+        }
+
+        function updateCollectionsBackground(category) {
+            const container = document.getElementById('collectionsBg');
+            if (!container) return;
+
+            // Get valid, non-placeholder images for this category
+            const validImages = [];
+            document.querySelectorAll(`.collection-sharp-item[data-category="${category}"]`).forEach(item => {
+                const img = item.querySelector('img');
+                if (img && !item.classList.contains('is-placeholder') && img.src && !img.src.includes('undefined')) {
+                    validImages.push(img.src);
+                }
+            });
+
+            const count = validImages.length;
+            if (count === 0) return;
+
+            // Smart Symmetry Logic
+            let cols, rows;
+            if (count === 4) {
+                cols = 2;
+                rows = 2;
+            } else {
+                cols = Math.min(count, 3);
+                rows = Math.ceil(count / 3);
+            }
+
+            // Create a NEW layer for cross-fading
+            const newLayer = document.createElement('div');
+            newLayer.className = 'collections-background-layer';
+            newLayer.style.opacity = '0';
+            newLayer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+            newLayer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+            // Fill the new layer with images
+            validImages.forEach(src => {
+                const tile = document.createElement('img');
+                tile.src = src;
+                newLayer.appendChild(tile);
+            });
+
+            // Add new layer to container
+            container.appendChild(newLayer);
+
+            // Force reflow to ensure transition starts
+            newLayer.offsetHeight;
+
+            // Fade in new layer
+            newLayer.style.opacity = '0.8';
+
+            // Fade out and remove old layers
+            const oldLayers = container.querySelectorAll('.collections-background-layer:not(:last-child)');
+            oldLayers.forEach(layer => {
+                layer.style.opacity = '0';
+                setTimeout(() => {
+                    if (layer.parentNode === container) {
+                        container.removeChild(layer);
+                    }
+                }, 1000); // Matches the 1s CSS transition
+            });
+        }
+
+        function toggleOverlay(element) {
+            const overlay = element.querySelector('.item-overlay');
+            if (overlay) {
+                overlay.classList.toggle('active');
+            }
+        }
+
+        // Initialize gallery and set background
+        window.addEventListener('load', () => {
+            moveSlider(0);
+
+            // Aggressive check for already broken or empty images
+            document.querySelectorAll('.collection-sharp-item img, .collection-circle-item img').forEach(img => {
+                if (img.complete && img.naturalHeight === 0) {
+                    window.handleGalleryError(img);
+                }
+            });
+
+            // Initial filter to set active state and background - Targeting 'Güller' (index 2)
+            const circles = document.querySelectorAll('.collection-circle-item');
+            if (circles[2]) filterGallery('guller', circles[2]);
+        });
+    </script>
+</body>
+
+</html>
