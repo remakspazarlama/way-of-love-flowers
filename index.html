@@ -1287,7 +1287,7 @@
 
             .whatsapp-glass-icon {
                 width: 100% !important;
-                height: 30vh !important;
+                height: 43vh !important;
             }
 
             .whatsapp-cta-text {
@@ -1929,8 +1929,325 @@
         <div class="container">
             <div class="whatsapp-cta-wrapper">
                 <div class="whatsapp-glass-icon">
-                    <img src="resimler/wp-icon.png" alt="WhatsApp">
+                    <style>
+                        .sahne {
+                            perspective: 1200px;
+                            position: relative;
+                        }
+
+                        .kutu {
+                            width: 26vh;
+                            height: 26vh;
+                            position: relative;
+                            transform-style: preserve-3d;
+
+                            /* İŞTE SİHİRLİ KOD: Kasmayı önler, hareketi GPU'ya (ekran kartına) atar */
+                            will-change: transform, translate;
+
+                            animation: donme 10s linear infinite, suzulme 4s ease-in-out infinite alternate;
+                        }
+
+                        .katman {
+                            position: absolute;
+                            inset: 0;
+                            border-radius: 45px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transform-style: preserve-3d;
+
+                        }
+
+                        /* ÖN VE ARKA CAM KAPAKLAR */
+                        .cam-yuzey {
+                            background: linear-gradient(135deg, #25d366 0%, rgba(255, 255, 255, 0.02) 100%);
+                            border: 2px solid rgba(37, 211, 102, 0.8);
+                            box-shadow: inset 0 0 20px #25d366;
+                        }
+
+                        /* SIVI CAM EFEKTİNİ UYGULAYAN BÖLÜM */
+                        .cam-yuzey::after {
+                            content: '';
+                            position: absolute;
+                            inset: 0;
+                            border-radius: 45px;
+                            z-index: -1;
+                            -webkit-backdrop-filter: blur(0px);
+                            backdrop-filter: blur(0px);
+                            -webkit-filter: url(#container-glass);
+                            filter: url(#container-glass);
+                            overflow: hidden;
+                            isolation: isolate;
+                        }
+
+                        /* YAN DUVARLARI OLUŞTURAN İSKELET KATMANLAR */
+                        .govde {
+                            background: transparent;
+                            border: 1.5px solid #25d366;
+                        }
+
+                        /* ORTADAKİ İKON */
+                        .ikon-merkez {
+                            transform: translateZ(0px);
+                            filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.8));
+                            border: 1.5px solid #25d366;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .wp-logosu {
+                            width: 100%;
+                            height: 73%;
+                            fill: #ffffff;
+                        }
+
+                        .golge {
+                            position: absolute;
+                            top: 230px;
+                            left: 50%;
+                            width: 28vh;
+                            height: 4vh;
+                            background: #25d366;
+                            border-radius: 50%;
+                            filter: blur(10px);
+                            transform: translateX(-50%);
+                            animation: golge-anim 4s ease-in-out infinite alternate;
+                        }
+
+                        /* ÖN VE ARKA CAM KAPAKLAR */
+                        .cam-yuzey {
+                            background: linear-gradient(135deg, #25d36600 0%, rgba(255, 255, 255, 0.02) 100%);
+                            border: 2px solid rgb(37 211 102);
+                            box-shadow: inset 0 0 20px #25d366;
+                            filter: url(#edge-glass);
+                        }
+
+                        .golge {
+                            top: 28vh;
+                        }
+
+                        @keyframes donme {
+                            0% {
+                                transform: rotateY(0deg) rotateX(15deg);
+                            }
+
+                            100% {
+                                transform: rotateY(360deg) rotateX(15deg);
+                            }
+                        }
+
+                        @keyframes suzulme {
+
+                            /* top yerine alt piksel (sub-pixel) render yapabilen translate kullanıyoruz */
+                            0% {
+                                translate: 0 0px;
+                            }
+
+                            100% {
+                                translate: 0 -25px;
+                            }
+                        }
+
+                        @keyframes golge-anim {
+                            0% {
+                                transform: translateX(-50%) scale(1);
+                                opacity: 0.8;
+                            }
+
+                            100% {
+                                transform: translateX(-50%) scale(0.6);
+                                opacity: 0.2;
+                            }
+                        }
+
+
+
+                        @media (max-width: 768px) {
+                            .sahne {
+                                perspective: 1200px;
+                                position: relative;
+                            }
+
+                            .kutu {
+                                width: 160px;
+                                height: 160px;
+                                position: relative;
+                                transform-style: preserve-3d;
+
+                                /* İŞTE SİHİRLİ KOD: Kasmayı önler, hareketi GPU'ya (ekran kartına) atar */
+                                will-change: transform, translate;
+
+                                animation: donme 10s linear infinite, suzulme 4s ease-in-out infinite alternate;
+                            }
+
+                            .katman {
+                                position: absolute;
+                                inset: 0;
+                                border-radius: 45px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                transform-style: preserve-3d;
+
+                            }
+
+                            /* ÖN VE ARKA CAM KAPAKLAR */
+                            .cam-yuzey {
+                                background: linear-gradient(135deg, #25d366 0%, rgba(255, 255, 255, 0.02) 100%);
+                                border: 2px solid rgba(37, 211, 102, 0.8);
+                                box-shadow: inset 0 0 20px #25d366;
+                            }
+
+                            /* SIVI CAM EFEKTİNİ UYGULAYAN BÖLÜM */
+                            .cam-yuzey::after {
+                                content: '';
+                                position: absolute;
+                                inset: 0;
+                                border-radius: 45px;
+                                z-index: -1;
+                                -webkit-backdrop-filter: blur(0px);
+                                backdrop-filter: blur(0px);
+                                -webkit-filter: url(#container-glass);
+                                filter: url(#container-glass);
+                                overflow: hidden;
+                                isolation: isolate;
+                            }
+
+                            /* YAN DUVARLARI OLUŞTURAN İSKELET KATMANLAR */
+                            .govde {
+                                background: transparent;
+                                border: 1.5px solid #25d366;
+                            }
+
+                            /* ORTADAKİ İKON */
+                            .ikon-merkez {
+                                transform: translateZ(0px);
+                                filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.8));
+                                border: 1.5px solid #25d366;
+                            }
+
+                            .wp-logosu {
+                                width: 95px;
+                                height: 95px;
+                                fill: #ffffff;
+                            }
+
+                            .golge {
+                                position: absolute;
+                                top: 230px;
+                                left: 50%;
+                                width: 130px;
+                                height: 18px;
+                                background: #25d366;
+                                border-radius: 50%;
+                                filter: blur(10px);
+                                transform: translateX(-50%);
+                                animation: golge-anim 4s ease-in-out infinite alternate;
+                            }
+
+                            /* ÖN VE ARKA CAM KAPAKLAR */
+                            .cam-yuzey {
+                                background: linear-gradient(135deg, #25d36600 0%, rgba(255, 255, 255, 0.02) 100%);
+                                border: 2px solid rgb(37 211 102);
+                                box-shadow: inset 0 0 20px #25d366;
+                                filter: url(#edge-glass);
+                            }
+
+                            .golge {
+                                top: 28vh;
+                            }
+                        }
+                    </style>
+
+
+                    <svg style="display: none">
+                        <!-- 1. Arka planı büken ağır sıvı efekti (::after ile arka plan için çalışıyor) -->
+                        <filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92"
+                                result="noise" />
+                            <feGaussianBlur in="noise" stdDeviation="0.02" result="blur" />
+                            <feDisplacementMap in="SourceGraphic" in2="blur" scale="77" xChannelSelector="R"
+                                yChannelSelector="G" />
+                        </filter>
+
+                        <!-- 2. Cam kutunun sadece kenarlarını sıvılaştıran hafif efekt (.cam-yuzey için) -->
+                        <filter id="edge-glass" x="-20%" y="-20%" width="140%" height="140%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.010" numOctaves="2" seed="5"
+                                result="noise" />
+                            <feGaussianBlur in="noise" stdDeviation="0.5" result="blur" />
+                            <feDisplacementMap in="SourceGraphic" in2="blur" scale="3" xChannelSelector="R"
+                                yChannelSelector="G" />
+                        </filter>
+                    </svg>
+
+                    <div class="sahne">
+                        <div class="golge"></div>
+
+                        <div class="kutu">
+                            <!-- ÖN CAM KAPAK (+15px) -->
+                            <div class="katman cam-yuzey" style="transform: translateZ(15px);"></div>
+
+                            <!-- YAN DUVARLARI OLUŞTURAN İÇİ BOŞALTILMIŞ KATMANLAR -->
+                            <div class="katman govde" style="transform: translateZ(14px);"></div>
+                            <div class="katman govde" style="transform: translateZ(13px);"></div>
+                            <div class="katman govde" style="transform: translateZ(12px);"></div>
+                            <div class="katman govde" style="transform: translateZ(11px);"></div>
+                            <div class="katman govde" style="transform: translateZ(10px);"></div>
+                            <div class="katman govde" style="transform: translateZ(9px);"></div>
+                            <div class="katman govde" style="transform: translateZ(8px);"></div>
+                            <div class="katman govde" style="transform: translateZ(7px);"></div>
+                            <div class="katman govde" style="transform: translateZ(6px);"></div>
+                            <div class="katman govde" style="transform: translateZ(5px);"></div>
+                            <div class="katman govde" style="transform: translateZ(4px);"></div>
+                            <div class="katman govde" style="transform: translateZ(3px);"></div>
+                            <div class="katman govde" style="transform: translateZ(2px);"></div>
+                            <div class="katman govde" style="transform: translateZ(1px);"></div>
+
+                            <!-- ORTAYA ASILI İKON -->
+                            <div class="katman ikon-merkez">
+                                <svg class="wp-logosu" xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px"
+                                    height="800px" viewBox="0 0 32 32" version="1.1">
+                                    <title>whatsapp</title>
+                                    <path
+                                        d="M26.576 5.363c-2.69-2.69-6.406-4.354-10.511-4.354-8.209 0-14.865 6.655-14.865 14.865 0 2.732 0.737 5.291 2.022 7.491l-0.038-0.070-2.109 7.702 7.879-2.067c2.051 1.139 4.498 1.809 7.102 1.809h0.006c8.209-0.003 14.862-6.659 14.862-14.868 0-4.103-1.662-7.817-4.349-10.507l0 0zM16.062 28.228h-0.005c-0 0-0.001 0-0.001 0-2.319 0-4.489-0.64-6.342-1.753l0.056 0.031-0.451-0.267-4.675 1.227 1.247-4.559-0.294-0.467c-1.185-1.862-1.889-4.131-1.889-6.565 0-6.822 5.531-12.353 12.353-12.353s12.353 5.531 12.353 12.353c0 6.822-5.53 12.353-12.353 12.353h-0zM22.838 18.977c-0.371-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.185-0.837 0.187-0.246 0.371-0.958 1.207-1.175 1.455-0.216 0.249-0.434 0.279-0.805 0.094-1.15-0.466-2.138-1.087-2.997-1.852l0.010 0.009c-0.799-0.74-1.484-1.587-2.037-2.521l-0.028-0.052c-0.216-0.371-0.023-0.572 0.162-0.757 0.167-0.166 0.372-0.434 0.557-0.65 0.146-0.179 0.271-0.384 0.366-0.604l0.006-0.017c0.043-0.087 0.068-0.188 0.068-0.296 0-0.131-0.037-0.253-0.101-0.357l0.002 0.003c-0.094-0.186-0.836-2.014-1.145-2.758-0.302-0.724-0.609-0.625-0.836-0.637-0.216-0.010-0.464-0.012-0.712-0.012-0.395 0.010-0.746 0.188-0.988 0.463l-0.001 0.002c-0.802 0.761-1.3 1.834-1.3 3.023 0 0.026 0 0.053 0.001 0.079l-0-0.004c0.131 1.467 0.681 2.784 1.527 3.857l-0.012-0.015c1.604 2.379 3.742 4.282 6.251 5.564l0.094 0.043c0.548 0.248 1.25 0.513 1.968 0.74l0.149 0.041c0.442 0.14 0.951 0.221 1.479 0.221 0.303 0 0.601-0.027 0.889-0.078l-0.031 0.004c1.069-0.223 1.956-0.868 2.497-1.749l0.009-0.017c0.165-0.366 0.261-0.793 0.261-1.242 0-0.185-0.016-0.366-0.047-0.542l0.003 0.019c-0.092-0.155-0.34-0.247-0.712-0.434z" />
+                                </svg>
+                            </div>
+
+                            <div class="katman govde" style="transform: translateZ(-1px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-2px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-3px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-4px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-5px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-6px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-7px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-8px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-9px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-10px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-11px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-12px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-13px);"></div>
+                            <div class="katman govde" style="transform: translateZ(-14px);"></div>
+
+                            <!-- ARKA CAM KAPAK (-15px) -->
+                            <div class="katman cam-yuzey" style="transform: translateZ(-15px) rotateY(180deg);"></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
+
+
+
                 <div class="whatsapp-cta-text">
                     <h2>Size Özel Fiyatlar</h2>
                     <p>Arzu ettiğiniz ürünü ve sipariş için bizimle anında iletişime geçin.</p>
@@ -1943,11 +2260,11 @@
 
     <style>
         .whatsapp-cta-wrapper {
-            padding: 1rem 0;
+            padding: 1vh 1vh;
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             gap: 50px;
             max-width: 1500px;
             margin: 0 0 0 0;
