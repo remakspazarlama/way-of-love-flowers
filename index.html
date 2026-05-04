@@ -63,6 +63,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent !important;
+            outline: none !important;
         }
 
         html {
@@ -724,8 +726,6 @@
             height: 100px;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid var(--accent-gold);
-            padding: 3px;
             transition: var(--transition);
             background: #fffcfc;
             /* Fallback color if image is missing */
@@ -1197,8 +1197,6 @@
                 height: 8vh;
                 object-fit: contain;
                 border-radius: 50%;
-                border: 2px solid var(--accent-gold);
-                padding: 3px;
                 transition: var(--transition);
                 background: #fffcfc;
                 display: block;
@@ -1502,6 +1500,19 @@
             .hero-slide.active .slide-title {
                 text-shadow: 0 0.3px 0.1px rgb(0 0 0 / 46%) !important;
                 font-weight: bold !important;
+            }
+
+            /* Glass Icon Mobile Reset */
+            .katman-extra {
+                display: none !important;
+            }
+
+            .cam-kapak-on {
+                transform: translateZ(15px) !important;
+            }
+
+            .cam-kapak-arka {
+                transform: translateZ(-15px) rotateY(180deg) !important;
             }
         }
 
@@ -2013,10 +2024,10 @@
 
                         .golge {
                             position: absolute;
-                            top: 230px;
+                            top: 33vh;
                             left: 50%;
-                            width: 28vh;
-                            height: 4vh;
+                            width: 31vh;
+                            height: 6vh;
                             background: #25d366;
                             border-radius: 50%;
                             filter: blur(10px);
@@ -2032,9 +2043,7 @@
                             filter: url(#edge-glass);
                         }
 
-                        .golge {
-                            top: 28vh;
-                        }
+
 
                         @keyframes donme {
                             0% {
@@ -2144,10 +2153,10 @@
 
                             .golge {
                                 position: absolute;
-                                top: 230px;
+                                top: 22vh;
                                 left: 50%;
-                                width: 130px;
-                                height: 18px;
+                                width: 22vh;
+                                height: 9vh;
                                 background: #25d366;
                                 border-radius: 50%;
                                 filter: blur(10px);
@@ -2163,9 +2172,6 @@
                                 filter: url(#edge-glass);
                             }
 
-                            .golge {
-                                top: 28vh;
-                            }
                         }
                     </style>
 
@@ -2194,10 +2200,40 @@
                         <div class="golge"></div>
 
                         <div class="kutu">
-                            <!-- ÖN CAM KAPAK (+15px) -->
-                            <div class="katman cam-yuzey" style="transform: translateZ(15px);"></div>
+                            <!-- ÖN CAM KAPAK (+45px) -->
+                            <div class="katman cam-yuzey cam-kapak-on" style="transform: translateZ(45px);"></div>
 
-                            <!-- YAN DUVARLARI OLUŞTURAN İÇİ BOŞALTILMIŞ KATMANLAR -->
+                            <!-- YAN DUVARLARI OLUŞTURAN İÇİ BOŞALTILMIŞ KATMANLAR (3 KAT FAZLA) -->
+                            <div class="katman govde katman-extra" style="transform: translateZ(44px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(43px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(42px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(41px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(40px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(39px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(38px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(37px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(36px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(35px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(34px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(33px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(32px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(31px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(30px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(29px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(28px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(27px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(26px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(25px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(24px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(23px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(22px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(21px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(20px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(19px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(18px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(17px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(16px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(15px);"></div>
                             <div class="katman govde" style="transform: translateZ(14px);"></div>
                             <div class="katman govde" style="transform: translateZ(13px);"></div>
                             <div class="katman govde" style="transform: translateZ(12px);"></div>
@@ -2237,9 +2273,40 @@
                             <div class="katman govde" style="transform: translateZ(-12px);"></div>
                             <div class="katman govde" style="transform: translateZ(-13px);"></div>
                             <div class="katman govde" style="transform: translateZ(-14px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-15px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-16px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-17px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-18px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-19px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-20px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-21px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-22px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-23px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-24px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-25px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-26px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-27px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-28px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-29px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-30px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-31px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-32px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-33px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-34px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-35px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-36px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-37px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-38px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-39px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-40px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-41px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-42px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-43px);"></div>
+                            <div class="katman govde katman-extra" style="transform: translateZ(-44px);"></div>
 
-                            <!-- ARKA CAM KAPAK (-15px) -->
-                            <div class="katman cam-yuzey" style="transform: translateZ(-15px) rotateY(180deg);"></div>
+                            <!-- ARKA CAM KAPAK (-45px) -->
+                            <div class="katman cam-yuzey cam-kapak-arka"
+                                style="transform: translateZ(-45px) rotateY(180deg);"></div>
                         </div>
                     </div>
 
