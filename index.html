@@ -1099,18 +1099,16 @@
             }
 
             #collections {
-                min-height: 75vh;
+                min-height: 90vh;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 position: relative;
                 overflow: hidden;
-                padding: 2vh 2vh;
+                padding: 2vh 1vh;
             }
 
-            .collections-background-layer {
-                height: min-content !important;
-            }
+
 
             #collections .container {
                 background: transparent;
@@ -1135,25 +1133,35 @@
             }
 
             .section-header h2 {
-                font-size: 2.2vh;
+                font-size: 4.2vh;
                 color: var(--deep-maroon);
                 margin-bottom: 10px;
+                text-shadow: 1px 1px 0.1px rgb(130 41 70 / 95%) !important;
             }
 
             .section-header p {
                 color: var(--accent-gold);
                 max-width: 500px;
                 margin: 0 auto;
-                font-size: 1.5vh;
+                font-size: 1.9vh;
                 font-weight: bold;
+                text-shadow: 2px 1.5px 0.1px rgb(165 98 16 / 97%);
+            }
+
+            .collection-sharp-grid {
+                .collection-sharp-item {
+
+                    aspect-ratio: 1 / 1.4;
+
+                }
             }
 
             .collection-circles {
                 display: flex;
                 justify-content: center;
                 margin-bottom: 2vh;
-                flex-wrap: wrap;
-                padding: 0 5px;
+                /* flex-wrap: wrap; */
+                padding: 0;
             }
 
             .collection-circle-item {
@@ -1162,7 +1170,7 @@
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-                width: 7vh;
+                width: unset;
                 transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 cursor: pointer;
                 margin: 0;
@@ -1175,8 +1183,8 @@
             }
 
             .collection-circle-item img {
-                width: 6.5vh;
-                height: 6.5vh;
+                width: 8vh;
+                height: 8vh;
                 object-fit: contain;
                 border-radius: 50%;
                 border: 2px solid var(--accent-gold);
@@ -1184,7 +1192,7 @@
                 transition: var(--transition);
                 background: #fffcfc;
                 display: block;
-                margin: 0 auto 5px;
+                margin: 0 0 5px;
             }
 
             .collection-circle-item h4 {
@@ -1201,12 +1209,12 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 row-gap: 2vh;
-                column-gap: 1vh;
-                width: 90%;
+                column-gap: 0.4vh;
+                width: 100%;
                 max-width: 900px;
                 min-height: unset;
-                margin: 1vh auto;
                 position: relative;
+                align-self: center;
             }
 
             .collection-sharp-item.is-placeholder {
@@ -1236,7 +1244,26 @@
 
 
 
-
+            .collection-sharp-grid {
+                .collection-sharp-item::before {
+                    content: 'Ways of Love';
+                    position: absolute;
+                    top: unset !important;
+                    left: unset !important;
+                    transform: unset !important;
+                    font-family: 'Playfair Display', serif;
+                    color: var(--deep-maroon);
+                    font-size: 1.9vh;
+                    font-weight: bold;
+                    letter-spacing: 0.1em;
+                    opacity: 1;
+                    white-space: unset !important;
+                    z-index: 1;
+                    transition: opacity 0.4s ease;
+                    text-align: center;
+                    padding: 1vh 2vh;
+                }
+            }
 
             .collection-sharp-grid {
                 .collection-sharp-item.is-placeholder {
@@ -1605,12 +1632,12 @@
             </div>
             <div class="collection-circles">
                 <div class="collection-circle-item animate" onclick="filterGallery('buketler', this)">
-                    <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=600"
-                        onerror="handleGalleryError(this)" alt="Buketler">
+                    <img src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt="Buketler">
                     <h4>Buketler</h4>
                 </div>
                 <div class="collection-circle-item animate" onclick="filterGallery('sakayiklar', this)">
-                    <img src="resimler/peony_detail_pink_1777752326045.png" onerror="handleGalleryError(this)"
+                    <img src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
                         alt="Şakayıklar">
                     <h4>Şakayıklar</h4>
                 </div>
@@ -1620,13 +1647,13 @@
                     <h4>Güller</h4>
                 </div>
                 <div class="collection-circle-item animate" onclick="filterGallery('aranjmanlar', this)">
-                    <img src="https://images.unsplash.com/photo-1591880911053-271701389e7e?q=80&w=600"
-                        onerror="handleGalleryError(this)" alt="Aranjmanlar">
+                    <img src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt="Aranjmanlar">
                     <h4>Aranjmanlar</h4>
                 </div>
                 <div class="collection-circle-item animate" onclick="filterGallery('ozel-gunler', this)">
-                    <img src="https://images.unsplash.com/photo-1563241527-3004b7be0941?q=80&w=600"
-                        onerror="handleGalleryError(this)" alt="Özel Günler">
+                    <img src="resimler/flower_bouquet_detail_1777751945765.png" onerror="handleGalleryError(this)"
+                        alt="Özel Günler">
                     <h4>Özel Günler</h4>
                 </div>
             </div>
