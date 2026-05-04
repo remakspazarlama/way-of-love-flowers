@@ -2353,11 +2353,25 @@
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .contact-map-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--deep-maroon);
+            mix-blend-mode: color;
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: 2;
         }
 
         .contact-map-wrapper iframe {
             display: block;
-            filter: grayscale(0.3) contrast(1.1);
+            filter: grayscale(1) contrast(1.2) brightness(0.9);
+            position: relative;
+            z-index: 1;
         }
     </style>
 
